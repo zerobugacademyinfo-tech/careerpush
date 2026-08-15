@@ -2,7 +2,11 @@
   --accent: #dc2626;
   --accent-dark: #b91c1c;
   --accent-soft: #fef2f2;
-  --ink: #16211f;
+  --accent-border: #f6c9c6;
+  --ink: #211815;
+  --ink-muted: #7a6d66;
+  --border: #e8e2db;
+  --bg-soft: #faf8f6;
 }
 
 body {
@@ -11,6 +15,13 @@ body {
 }
 
 .text-accent { color: var(--accent) !important; }
+
+/* Keep the whole site on red/white/neutral only — override Bootstrap's
+   default cool-grey utilities so nothing off-brand slips in via CDN classes. */
+.text-muted { color: var(--ink-muted) !important; }
+.bg-light { background-color: var(--bg-soft) !important; }
+.border-bottom { border-bottom-color: var(--border) !important; }
+.border-top { border-top-color: var(--border) !important; }
 
 .btn-accent {
   background-color: var(--accent);
@@ -39,28 +50,145 @@ body {
 
 /* Hero */
 .hero {
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #e0362e 0%, var(--accent) 45%, #a91d1d 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  pointer-events: none;
+  z-index: -1;
+}
+.hero::before {
+  width: 30rem;
+  height: 30rem;
+  top: -12rem;
+  right: -8rem;
+}
+.hero::after {
+  width: 20rem;
+  height: 20rem;
+  bottom: -10rem;
+  left: -6rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+.hero-watermark {
+  position: absolute;
+  right: -4%;
+  bottom: -12%;
+  width: 26rem;
+  height: 26rem;
+  opacity: 0.08;
+  z-index: -1;
+  pointer-events: none;
+}
+.hero h1 { color: #fff; }
+.hero .text-muted { color: rgba(255, 255, 255, 0.85) !important; }
+.hero .lead { font-size: 1.05rem; }
+
+.badge-glass {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.hero .btn-accent {
+  background-color: #fff;
+  border-color: #fff;
+  color: var(--accent-dark);
+}
+.hero .btn-accent:hover,
+.hero .btn-accent:focus {
+  background-color: var(--bg-soft);
+  border-color: var(--bg-soft);
+  color: var(--accent-dark);
+}
+.hero .btn-outline-dark {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+.hero .btn-outline-dark:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #fff;
+  color: #fff;
 }
 
 .hero-card {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border);
   border-radius: 16px;
-  box-shadow: 0 20px 40px -20px rgba(220, 38, 38, 0.25);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.45);
+  color: var(--ink);
+}
+
+.chat-header {
+  background: var(--accent-soft);
+  border-bottom: 1px solid var(--border);
+}
+.chat-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  flex-shrink: 0;
+}
+.chat-status {
+  font-size: 0.72rem;
+  color: #16a34a;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #16a34a;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.chat-tick {
+  color: var(--accent);
+  font-weight: 700;
+}
+.chat-bubble {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  border-top-left-radius: 4px;
+  padding: 0.65rem 0.9rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.88rem;
+  max-width: 92%;
+}
+.chat-time {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+  margin-top: 0.3rem;
 }
 
 /* Cards */
 .problem-card,
 .step-card {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border);
   border-radius: 14px;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .problem-card:hover,
 .step-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 30px -18px rgba(15, 23, 42, 0.25);
+  box-shadow: 0 16px 30px -18px rgba(220, 38, 38, 0.22);
 }
 
 .step-num {
@@ -76,28 +204,28 @@ body {
 }
 
 .note-card {
-  background: #fffbeb;
-  border: 1px solid #fde68a;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
   border-radius: 14px;
 }
 
 .signup-card {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border);
   border-radius: 16px;
-  box-shadow: 0 20px 40px -24px rgba(15, 23, 42, 0.25);
+  box-shadow: 0 20px 40px -24px rgba(220, 38, 38, 0.2);
 }
 
 /* Pricing */
 .pricing-card {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border);
   border-radius: 16px;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .pricing-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 30px -18px rgba(15, 23, 42, 0.25);
+  box-shadow: 0 16px 30px -18px rgba(220, 38, 38, 0.22);
 }
 .pricing-card-featured {
   border: 2px solid var(--accent);
@@ -139,7 +267,7 @@ body {
 }
 .legal-content p,
 .legal-content li {
-  color: #4b5563;
+  color: var(--ink-muted);
 }
 .legal-content .placeholder {
   background-color: #fef2f2;

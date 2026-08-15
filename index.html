@@ -92,15 +92,22 @@ src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXX&ev=PageView&noscript=1"
 
 <!-- Hero -->
 <header class="hero">
+  <svg class="hero-watermark" viewBox="0 0 100 100" aria-hidden="true">
+    <rect x="16" y="16" width="14" height="68" fill="#ffffff"/>
+    <rect x="16" y="16" width="38" height="14" fill="#ffffff"/>
+    <rect x="16" y="70" width="38" height="14" fill="#ffffff"/>
+    <rect x="56" y="10" width="13" height="80" fill="#ffffff"/>
+    <rect x="56" y="10" width="28" height="26" fill="#ffffff"/>
+  </svg>
   <div class="container py-5">
     <div class="row align-items-center py-lg-5">
       <div class="col-lg-7">
-        <span class="badge badge-soft mb-3">Now open — plans from ₹499/month</span>
+        <span class="badge badge-glass mb-3">Now open — plans from ₹499/month</span>
         <h1 class="display-5 fw-bold mb-3">You're applying every day. Still no interview calls?</h1>
         <p class="lead text-muted mb-4">
-          CareerPush helps you manage your job search with human support and technology. AI tools can
-          polish your resume, but they can't call a hiring manager or chase a follow-up — our team does
-          that for you, using candidate-authorized methods every step of the way.
+          CareerPush helps you manage your job search with human support and technology — profile setup,
+          application assistance, and the follow-through AI tools can't do. Real people, every step of
+          the way.
         </p>
         <div class="d-flex flex-column flex-sm-row gap-3">
           <a href="#pricing" class="btn btn-accent btn-lg px-4">See plans &amp; pricing</a>
@@ -111,14 +118,35 @@ src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXX&ev=PageView&noscript=1"
         </p>
       </div>
       <div class="col-lg-5 mt-5 mt-lg-0">
-        <div class="hero-card p-4">
-          <p class="text-uppercase small fw-semibold text-accent mb-3">What changes for you</p>
-          <ul class="list-unstyled mb-0">
-            <li class="d-flex gap-2 mb-3"><i class="bi bi-x-circle text-danger"></i><span>No more spraying your resume into portal forms that go nowhere.</span></li>
-            <li class="d-flex gap-2 mb-3"><i class="bi bi-check-circle text-success"></i><span>A real person helps manage your applications and follow-ups.</span></li>
-            <li class="d-flex gap-2 mb-3"><i class="bi bi-check-circle text-success"></i><span>You get a progress update — no wondering where things stand.</span></li>
-            <li class="d-flex gap-2"><i class="bi bi-check-circle text-success"></i><span>You show up for interviews. We handle the chasing.</span></li>
-          </ul>
+        <div class="hero-card p-0 overflow-hidden">
+          <div class="chat-header d-flex align-items-center gap-2 p-3">
+            <svg class="chat-avatar" viewBox="0 0 100 100" aria-hidden="true">
+              <rect width="100" height="100" rx="22" fill="#dc2626"/>
+              <rect x="16" y="16" width="14" height="68" fill="#ffffff"/>
+              <rect x="16" y="16" width="38" height="14" fill="#ffffff"/>
+              <rect x="16" y="70" width="38" height="14" fill="#ffffff"/>
+              <rect x="56" y="10" width="13" height="80" fill="#ffffff"/>
+              <rect x="56" y="10" width="28" height="26" fill="#ffffff"/>
+            </svg>
+            <div>
+              <p class="mb-0 fw-semibold small">CareerPush</p>
+              <p class="mb-0 chat-status"><span class="status-dot"></span> Active now</p>
+            </div>
+          </div>
+          <div class="p-3">
+            <div class="chat-bubble">
+              Hi Arjun! Your Naukri &amp; LinkedIn profiles are set up.
+              <span class="chat-time">9:14 AM <span class="chat-tick">✓✓</span></span>
+            </div>
+            <div class="chat-bubble">
+              3 new roles matched your profile — applied on your behalf.
+              <span class="chat-time">11:02 AM <span class="chat-tick">✓✓</span></span>
+            </div>
+            <div class="chat-bubble mb-0">
+              Interview scheduled with Zenith Corp — Thu, 3:00 PM. Want a quick prep call?
+              <span class="chat-time">2:47 PM <span class="chat-tick">✓✓</span></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
