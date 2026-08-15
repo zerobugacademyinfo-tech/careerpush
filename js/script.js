@@ -1,5 +1,5 @@
 // TODO: replace with your real WhatsApp number in international format, digits only (e.g. "919876543210")
-const WHATSAPP_NUMBER = "9750061584";
+const WHATSAPP_NUMBER = "919750061584";
 
 document.getElementById("year").textContent = new Date().getFullYear();
 

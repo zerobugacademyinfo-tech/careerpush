@@ -1,7 +1,7 @@
 :root {
-  --accent: #0f766e;
-  --accent-dark: #0b5c56;
-  --accent-soft: #ecfdf5;
+  --accent: #dc2626;
+  --accent-dark: #b91c1c;
+  --accent-soft: #fef2f2;
   --ink: #16211f;
 }
 
@@ -46,7 +46,7 @@ body {
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 16px;
-  box-shadow: 0 20px 40px -20px rgba(15, 118, 110, 0.25);
+  box-shadow: 0 20px 40px -20px rgba(220, 38, 38, 0.25);
 }
 
 /* Cards */
@@ -101,7 +101,7 @@ body {
 }
 .pricing-card-featured {
   border: 2px solid var(--accent);
-  box-shadow: 0 20px 40px -20px rgba(15, 118, 110, 0.35);
+  box-shadow: 0 20px 40px -20px rgba(220, 38, 38, 0.35);
 }
 .pricing-card ul li i {
   color: var(--accent);
@@ -125,5 +125,26 @@ body {
   background-color: var(--accent-soft);
 }
 .accordion-button:focus {
-  box-shadow: 0 0 0 0.2rem rgba(15, 118, 110, 0.2);
+  box-shadow: 0 0 0 0.2rem rgba(220, 38, 38, 0.2);
+}
+
+.legal-content h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.legal-content h2:first-child {
+  margin-top: 0;
+}
+.legal-content p,
+.legal-content li {
+  color: #4b5563;
+}
+.legal-content .placeholder {
+  background-color: #fef2f2;
+  border: 1px dashed #dc2626;
+  border-radius: 6px;
+  padding: 0.15rem 0.5rem;
+  font-style: italic;
 }
