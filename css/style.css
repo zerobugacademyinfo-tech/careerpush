@@ -88,6 +88,34 @@ body {
   box-shadow: 0 20px 40px -24px rgba(15, 23, 42, 0.25);
 }
 
+/* Pricing */
+.pricing-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px -18px rgba(15, 23, 42, 0.25);
+}
+.pricing-card-featured {
+  border: 2px solid var(--accent);
+  box-shadow: 0 20px 40px -20px rgba(15, 118, 110, 0.35);
+}
+.pricing-card ul li i {
+  color: var(--accent);
+}
+.badge-accent {
+  background-color: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
 .navbar-brand span.text-accent {
   color: var(--accent);
 }
