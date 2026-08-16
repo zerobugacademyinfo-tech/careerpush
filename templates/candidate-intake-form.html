@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CareerPush — Candidate Details Form</title>
+<style>
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', -apple-system, Roboto, sans-serif;
+    color: #211815;
+    background: #faf8f6;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 0 40px; }
+
+  .band {
+    background: linear-gradient(135deg, #e0362e 0%, #dc2626 45%, #a91d1d 100%);
+    color: #fff;
+    padding: 32px 28px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 15px; margin-bottom: 18px; }
+  .brand svg { width: 28px; height: 28px; border-radius: 6px; }
+  .band h1 { font-size: 26px; font-weight: 800; margin: 0 0 8px; }
+  .band p { margin: 0; font-size: 14px; opacity: 0.92; line-height: 1.5; }
+
+  .security-note {
+    margin: -18px 28px 0;
+    background: #fef2f2;
+    border: 1px solid #dc2626;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 12px 24px -16px rgba(0,0,0,0.35);
+  }
+  .security-note strong { color: #b91c1c; }
+
+  section { padding: 28px 28px 4px; }
+  section h2 {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #dc2626;
+    font-weight: 700;
+    margin: 0 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e8e2db;
+  }
+
+  .field { margin-bottom: 16px; }
+  .field label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  .field .hint { font-weight: 400; color: #7a6d66; font-size: 12.5px; }
+  .field .optional {
+    font-weight: 400;
+    color: #b91c1c;
+    background: #fef2f2;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 1px 7px;
+    border-radius: 999px;
+    margin-left: 6px;
+  }
+  .field input[type="text"],
+  .field input[type="tel"],
+  .field input[type="url"],
+  .field textarea,
+  .field select {
+    width: 100%;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 9px 11px;
+    border: 1px solid #d8cfc8;
+    border-radius: 8px;
+    background: #fff;
+    color: #211815;
+  }
+  .field textarea { resize: vertical; min-height: 60px; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  footer {
+    margin: 20px 28px 0;
+    background: #fef2f2;
+    border: 1px solid #f6c9c6;
+    border-radius: 10px;
+    padding: 18px;
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+  footer strong { display: block; margin-bottom: 4px; font-size: 14px; }
+
+  @media print {
+    body { background: #fff; }
+    .wrap { max-width: 100%; }
+    .field input, .field textarea, .field select { border-color: #999; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="band">
+    <div class="brand">
+      <svg viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="22" fill="#ffffff" opacity="0.15"/>
+        <rect x="16" y="16" width="14" height="68" fill="#ffffff"/>
+        <rect x="16" y="16" width="38" height="14" fill="#ffffff"/>
+        <rect x="16" y="70" width="38" height="14" fill="#ffffff"/>
+        <rect x="56" y="10" width="13" height="80" fill="#ffffff"/>
+        <rect x="56" y="10" width="28" height="26" fill="#ffffff"/>
+      </svg>
+      CareerPush
+    </div>
+    <h1>Candidate Details Form</h1>
+    <p>The details below are what we actually need to start setting up your profile, matching you to roles, and applying on your behalf. Nothing here is used for anything beyond delivering your plan.</p>
+  </div>
+
+  <div class="security-note">
+    <strong>We will never ask for a password.</strong> Not your LinkedIn password, not your email password, not any job portal login. If anyone asks for one claiming to be CareerPush, don't share it — message us directly to confirm.
+  </div>
+
+  <form>
+    <section>
+      <h2>Professional Background</h2>
+      <div class="row2">
+        <div class="field">
+          <label>Date of Birth <span class="optional">Optional</span></label>
+          <input type="text" placeholder="DD/MM/YYYY">
+        </div>
+        <div class="field">
+          <label>Total Years of Experience</label>
+          <input type="text" placeholder="e.g. Fresher, 2 years, 4.5 years">
+        </div>
+      </div>
+      <div class="field">
+        <label>Highest Qualification</label>
+        <input type="text" placeholder="e.g. B.E. Computer Science, 2025">
+      </div>
+      <div class="field">
+        <label>Current Organization, Designation &amp; Location <span class="optional">If employed</span></label>
+        <input type="text" placeholder="e.g. TCS, Associate Analyst, Chennai">
+      </div>
+      <div class="field">
+        <label>Joining Date at Current Organization <span class="optional">If employed</span></label>
+        <input type="text" placeholder="DD/MM/YYYY">
+      </div>
+      <div class="field">
+        <label>Certifications &amp; Achievements <span class="optional">Optional</span></label>
+        <textarea placeholder="Any certifications, awards, competition wins, etc."></textarea>
+      </div>
+    </section>
+
+    <section>
+      <h2>Job Search Preferences</h2>
+      <div class="field">
+        <label>Target Designations / Roles</label>
+        <input type="text" placeholder="e.g. Business Analyst, IT Support Executive">
+      </div>
+      <div class="field">
+        <label>Preferred Industries</label>
+        <input type="text" placeholder="e.g. IT Services, BFSI, EdTech">
+      </div>
+      <div class="field">
+        <label>Target Companies <span class="optional">Optional</span></label>
+        <input type="text" placeholder="Specific companies you'd like us to prioritize">
+      </div>
+      <div class="field">
+        <label>Companies to Avoid <span class="optional">Optional</span></label>
+        <span class="hint">Important if you're searching confidentially — we'll never apply to these on your behalf.</span>
+        <input type="text" placeholder="e.g. your current employer">
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Current CTC <span class="optional">If employed</span></label>
+          <input type="text" placeholder="e.g. ₹4.2 LPA">
+        </div>
+        <div class="field">
+          <label>Expected CTC</label>
+          <input type="text" placeholder="e.g. ₹6–7 LPA">
+        </div>
+      </div>
+      <div class="field">
+        <label>Notice Period <span class="optional">If employed</span></label>
+        <input type="text" placeholder="e.g. 30 days, immediate">
+      </div>
+    </section>
+
+    <section>
+      <h2>Online Presence</h2>
+      <span class="hint">Links only — we'll never ask you to share a login or password for any of these.</span>
+      <div class="field" style="margin-top:12px;">
+        <label>LinkedIn Profile URL</label>
+        <input type="url" placeholder="https://linkedin.com/in/yourname">
+      </div>
+      <div class="field">
+        <label>Portfolio Link <span class="optional">If applicable</span></label>
+        <input type="url" placeholder="https://...">
+      </div>
+      <div class="field">
+        <label>GitHub Link <span class="optional">If applicable</span></label>
+        <input type="url" placeholder="https://github.com/yourname">
+      </div>
+    </section>
+
+    <section>
+      <h2>What Makes You Stand Out</h2>
+      <div class="field">
+        <label>Any USPs (Unique Selling Points) we should highlight to employers <span class="optional">Optional</span></label>
+        <textarea placeholder="Anything that sets you apart — a specific project, a rare skill combination, a notable result you drove, etc."></textarea>
+      </div>
+    </section>
+
+    <section>
+      <h2>Communication Preferences</h2>
+      <div class="row2">
+        <div class="field">
+          <label>Preferred Language</label>
+          <input type="text" placeholder="English / Tamil">
+        </div>
+        <div class="field">
+          <label>Best Time to Reach You <span class="optional">Optional</span></label>
+          <input type="text" placeholder="e.g. after 6 PM on weekdays">
+        </div>
+      </div>
+    </section>
+  </form>
+
+  <footer>
+    <strong>How to send this back</strong>
+    Fill this in, then send it back however's easiest — reply to our WhatsApp message with the answers, screenshot this page, or print/save it as a PDF and send that. Also attach your latest resume if you have one; if not, we'll help you build one from what's above.
+  </footer>
+</div>
+
+</body>
+</html>
