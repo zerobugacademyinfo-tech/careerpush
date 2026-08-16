@@ -40,7 +40,7 @@
   p { line-height: 1.55; font-size: 10.5pt; margin: 0 0 3mm; }
   .muted { color: #7a6d66; }
 
-  .logo-mark { width: 20mm; height: 20mm; }
+  .logo-mark { width: 16mm; height: 16mm; flex-shrink: 0; }
   .placeholder-tag {
     background: #fef2f2;
     border: 1px dashed #dc2626;
@@ -55,7 +55,9 @@
   .cover .top { padding: 20mm 18mm 0; }
   .cover .mid { padding: 0 18mm; }
   .cover .bottom { padding: 0 18mm 20mm; }
-  .cover h1 { font-size: 32pt; margin-top: 10mm; }
+  .cover-brand { display: flex; align-items: center; gap: 4mm; }
+  .cover-wordmark { font-size: 17pt; font-weight: 800; color: #fff; letter-spacing: -0.01em; }
+  .cover h1 { font-size: 32pt; margin-top: 12mm; }
   .cover .subtitle { font-size: 13pt; opacity: 0.92; margin-top: 2mm; }
   .cover .prepared-for { margin-top: 14mm; font-size: 11pt; }
   .cover .prepared-for .name { font-size: 15pt; font-weight: 700; margin-top: 1mm; }
@@ -70,6 +72,7 @@
     border-bottom: 1px solid #e8e2db;
   }
   .page-header .brand { display: flex; align-items: center; gap: 3mm; font-weight: 800; font-size: 12pt; }
+  .page-header .brand-icon { width: 7mm; height: 7mm; border-radius: 1.6mm; flex-shrink: 0; }
   .page-header .brand .push { color: #dc2626; }
   .page-header .for-line { font-size: 9pt; color: #7a6d66; }
 
@@ -145,13 +148,16 @@
 <!-- PAGE 1: COVER -->
 <div class="page cover band">
   <div class="top">
-    <svg class="logo-mark" viewBox="0 0 100 100">
-      <rect x="16" y="16" width="14" height="68" fill="#ffffff"/>
-      <rect x="16" y="16" width="38" height="14" fill="#ffffff"/>
-      <rect x="16" y="70" width="38" height="14" fill="#ffffff"/>
-      <rect x="56" y="10" width="13" height="80" fill="#ffffff"/>
-      <rect x="56" y="10" width="28" height="26" fill="#ffffff"/>
-    </svg>
+    <div class="cover-brand">
+      <svg class="logo-mark" viewBox="0 0 100 100">
+        <rect x="16" y="16" width="14" height="68" fill="#ffffff"/>
+        <rect x="16" y="16" width="38" height="14" fill="#ffffff"/>
+        <rect x="16" y="70" width="38" height="14" fill="#ffffff"/>
+        <rect x="56" y="10" width="13" height="80" fill="#ffffff"/>
+        <rect x="56" y="10" width="28" height="26" fill="#ffffff"/>
+      </svg>
+      <span class="cover-wordmark">CareerPush</span>
+    </div>
     <h1>Career Support Plan</h1>
     <p class="subtitle">A proposal from CareerPush — human support and technology for your job search.</p>
   </div>
@@ -170,7 +176,17 @@
 <!-- PAGE 2: WELCOME LETTER -->
 <div class="page">
   <div class="page-header">
-    <div class="brand">Career<span class="push">Push</span></div>
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="22" fill="#dc2626"/>
+        <rect x="16" y="16" width="14" height="68" fill="#ffffff"/>
+        <rect x="16" y="16" width="38" height="14" fill="#ffffff"/>
+        <rect x="16" y="70" width="38" height="14" fill="#ffffff"/>
+        <rect x="56" y="10" width="13" height="80" fill="#ffffff"/>
+        <rect x="56" y="10" width="28" height="26" fill="#ffffff"/>
+      </svg>
+      <span>Career<span class="push">Push</span></span>
+    </div>
     <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
   </div>
   <div class="content">
@@ -194,7 +210,17 @@
 <!-- PAGE 3: CAPABILITIES PART 1 -->
 <div class="page">
   <div class="page-header">
-    <div class="brand">Career<span class="push">Push</span></div>
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="22" fill="#dc2626"/>
+        <rect x="16" y="16" width="14" height="68" fill="#ffffff"/>
+        <rect x="16" y="16" width="38" height="14" fill="#ffffff"/>
+        <rect x="16" y="70" width="38" height="14" fill="#ffffff"/>
+        <rect x="56" y="10" width="13" height="80" fill="#ffffff"/>
+        <rect x="56" y="10" width="28" height="26" fill="#ffffff"/>
+      </svg>
+      <span>Career<span class="push">Push</span></span>
+    </div>
     <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
   </div>
   <div class="content">
@@ -231,7 +257,17 @@
 <!-- PAGE 4: CAPABILITIES PART 2 -->
 <div class="page">
   <div class="page-header">
-    <div class="brand">Career<span class="push">Push</span></div>
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="22" fill="#dc2626"/>
+        <rect x="16" y="16" width="14" height="68" fill="#ffffff"/>
+        <rect x="16" y="16" width="38" height="14" fill="#ffffff"/>
+        <rect x="16" y="70" width="38" height="14" fill="#ffffff"/>
+        <rect x="56" y="10" width="13" height="80" fill="#ffffff"/>
+        <rect x="56" y="10" width="28" height="26" fill="#ffffff"/>
+      </svg>
+      <span>Career<span class="push">Push</span></span>
+    </div>
     <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
   </div>
   <div class="content">
@@ -274,7 +310,17 @@
 <!-- PAGE 5: PLATINUM EXTRAS -->
 <div class="page">
   <div class="page-header">
-    <div class="brand">Career<span class="push">Push</span></div>
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="22" fill="#dc2626"/>
+        <rect x="16" y="16" width="14" height="68" fill="#ffffff"/>
+        <rect x="16" y="16" width="38" height="14" fill="#ffffff"/>
+        <rect x="16" y="70" width="38" height="14" fill="#ffffff"/>
+        <rect x="56" y="10" width="13" height="80" fill="#ffffff"/>
+        <rect x="56" y="10" width="28" height="26" fill="#ffffff"/>
+      </svg>
+      <span>Career<span class="push">Push</span></span>
+    </div>
     <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
   </div>
   <div class="content">
@@ -307,7 +353,17 @@
 <!-- PAGE 6: PRICING -->
 <div class="page">
   <div class="page-header">
-    <div class="brand">Career<span class="push">Push</span></div>
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="22" fill="#dc2626"/>
+        <rect x="16" y="16" width="14" height="68" fill="#ffffff"/>
+        <rect x="16" y="16" width="38" height="14" fill="#ffffff"/>
+        <rect x="16" y="70" width="38" height="14" fill="#ffffff"/>
+        <rect x="56" y="10" width="13" height="80" fill="#ffffff"/>
+        <rect x="56" y="10" width="28" height="26" fill="#ffffff"/>
+      </svg>
+      <span>Career<span class="push">Push</span></span>
+    </div>
     <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
   </div>
   <div class="content">
@@ -397,7 +453,17 @@
 <!-- PAGE 7: WHY + CONTACT -->
 <div class="page">
   <div class="page-header">
-    <div class="brand">Career<span class="push">Push</span></div>
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="22" fill="#dc2626"/>
+        <rect x="16" y="16" width="14" height="68" fill="#ffffff"/>
+        <rect x="16" y="16" width="38" height="14" fill="#ffffff"/>
+        <rect x="16" y="70" width="38" height="14" fill="#ffffff"/>
+        <rect x="56" y="10" width="13" height="80" fill="#ffffff"/>
+        <rect x="56" y="10" width="28" height="26" fill="#ffffff"/>
+      </svg>
+      <span>Career<span class="push">Push</span></span>
+    </div>
     <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
   </div>
   <div class="content">
