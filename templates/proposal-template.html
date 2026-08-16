@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CareerPush — Career Support Plan Proposal</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', -apple-system, Roboto, sans-serif;
+    color: #211815;
+    background: #efe9e4;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: #ffffff;
+    position: relative;
+    page-break-after: always;
+    overflow: hidden;
+  }
+  .page:last-child { page-break-after: auto; }
+  @media screen {
+    .page { margin: 16px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+  }
+
+  .band {
+    background: linear-gradient(135deg, #e0362e 0%, #dc2626 45%, #a91d1d 100%);
+    color: #fff;
+    padding: 14mm 16mm;
+  }
+  .band-sm { padding: 8mm 16mm; }
+  .content { padding: 12mm 16mm; }
+
+  h1 { font-size: 26pt; font-weight: 800; margin: 0 0 4mm; letter-spacing: -0.01em; }
+  h2 { font-size: 18pt; font-weight: 800; margin: 0 0 3mm; color: #211815; }
+  h3 { font-size: 13pt; font-weight: 700; margin: 0 0 2mm; color: #211815; }
+  p { line-height: 1.55; font-size: 10.5pt; margin: 0 0 3mm; }
+  .muted { color: #7a6d66; }
+
+  .logo-mark { width: 20mm; height: 20mm; }
+  .placeholder-tag {
+    background: #fef2f2;
+    border: 1px dashed #dc2626;
+    color: #b91c1c;
+    padding: 0.5mm 2mm;
+    border-radius: 3px;
+    font-style: italic;
+  }
+
+  /* ---- Cover page ---- */
+  .cover { display: flex; flex-direction: column; justify-content: space-between; height: 297mm; }
+  .cover .top { padding: 20mm 18mm 0; }
+  .cover .mid { padding: 0 18mm; }
+  .cover .bottom { padding: 0 18mm 20mm; }
+  .cover h1 { font-size: 32pt; margin-top: 10mm; }
+  .cover .subtitle { font-size: 13pt; opacity: 0.92; margin-top: 2mm; }
+  .cover .prepared-for { margin-top: 14mm; font-size: 11pt; }
+  .cover .prepared-for .name { font-size: 15pt; font-weight: 700; margin-top: 1mm; }
+  .cover .date { margin-top: 4mm; font-size: 10.5pt; opacity: 0.85; }
+
+  /* ---- Header bar reused on inner pages ---- */
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6mm 16mm;
+    border-bottom: 1px solid #e8e2db;
+  }
+  .page-header .brand { display: flex; align-items: center; gap: 3mm; font-weight: 800; font-size: 12pt; }
+  .page-header .brand .push { color: #dc2626; }
+  .page-header .for-line { font-size: 9pt; color: #7a6d66; }
+
+  .page-footer {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 4mm 16mm;
+    font-size: 8pt;
+    color: #7a6d66;
+    border-top: 1px solid #e8e2db;
+  }
+
+  /* ---- Capability blocks ---- */
+  .capability { margin-bottom: 8mm; padding-bottom: 6mm; border-bottom: 1px solid #e8e2db; }
+  .capability:last-child { border-bottom: none; }
+  .capability .tier-tag {
+    display: inline-block;
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: #fef2f2;
+    color: #b91c1c;
+    padding: 0.8mm 2.4mm;
+    border-radius: 999px;
+    margin-bottom: 2mm;
+  }
+  .deliverables { margin-top: 2mm; }
+  .deliverables li { font-size: 10pt; margin-bottom: 1.2mm; color: #211815; }
+  .deliverables { padding-left: 5mm; margin: 2mm 0 0; }
+
+  /* ---- Pricing table ---- */
+  table.plans { width: 100%; border-collapse: collapse; margin: 4mm 0 6mm; }
+  table.plans th, table.plans td {
+    border: 1px solid #e8e2db;
+    padding: 3mm 3mm;
+    font-size: 9.5pt;
+    text-align: left;
+    vertical-align: top;
+  }
+  table.plans th { background: #fef2f2; font-weight: 700; }
+  table.plans th.gold { background: #dc2626; color: #fff; }
+  table.plans td.price { font-weight: 800; font-size: 12pt; }
+  table.plans .check { color: #dc2626; font-weight: 700; }
+  table.plans .dash { color: #cbb; opacity: 0.5; }
+
+  .note-block {
+    background: #fef2f2;
+    border: 1px solid #f6c9c6;
+    border-radius: 3mm;
+    padding: 5mm 6mm;
+    margin-top: 6mm;
+  }
+  .note-block h3 { margin-bottom: 2mm; }
+  .note-block p { font-size: 9.5pt; color: #4a4340; }
+
+  /* ---- Signature / contact ---- */
+  .signature { margin-top: 8mm; }
+  .signature .name { font-weight: 700; font-size: 11pt; }
+  .signature .role { color: #7a6d66; font-size: 9.5pt; }
+  .contact-block { margin-top: 3mm; font-size: 10pt; }
+  .contact-block div { margin-bottom: 1.5mm; }
+
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm 8mm; margin-top: 4mm; }
+  .why-grid .item h3 { font-size: 11.5pt; }
+  .why-grid .item p { font-size: 9.5pt; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page cover band">
+  <div class="top">
+    <svg class="logo-mark" viewBox="0 0 100 100">
+      <rect x="16" y="16" width="14" height="68" fill="#ffffff"/>
+      <rect x="16" y="16" width="38" height="14" fill="#ffffff"/>
+      <rect x="16" y="70" width="38" height="14" fill="#ffffff"/>
+      <rect x="56" y="10" width="13" height="80" fill="#ffffff"/>
+      <rect x="56" y="10" width="28" height="26" fill="#ffffff"/>
+    </svg>
+    <h1>Career Support Plan</h1>
+    <p class="subtitle">A proposal from CareerPush — human support and technology for your job search.</p>
+  </div>
+  <div class="mid">
+    <div class="prepared-for">
+      Prepared for
+      <div class="name placeholder-tag" style="background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.5); color:#fff;">[Candidate Name]</div>
+    </div>
+    <div class="date placeholder-tag" style="background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.5); color:#fff; display:inline-block;">[Date]</div>
+  </div>
+  <div class="bottom">
+    <p style="font-size:9.5pt; opacity:0.85;">Private &amp; confidential — prepared specifically for the candidate named above.</p>
+  </div>
+</div>
+
+<!-- PAGE 2: WELCOME LETTER -->
+<div class="page">
+  <div class="page-header">
+    <div class="brand">Career<span class="push">Push</span></div>
+    <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
+  </div>
+  <div class="content">
+    <h2>Dear <span class="placeholder-tag">[Candidate Name]</span>,</h2>
+    <p>Thank you for considering CareerPush for your job search. I'm glad to share exactly what a CareerPush subscription includes, so you know precisely what you're signing up for before you do.</p>
+    <p>CareerPush exists because applying through job portals alone rarely gets freshers and early-career candidates enough interview calls. We combine human support with technology to manage the parts of a job search that are hardest to keep up alone — profile setup, application assistance, follow-through, and interview preparation — with real people doing the work, not a bot or an autofill script.</p>
+    <p>This document walks through what's included at each plan level, how the process actually works week to week, and what it costs. I've also included a short, honest section on what we don't promise — because a job search has real uncertainty in it, and I'd rather be upfront about that than oversell it.</p>
+    <p>If anything here needs clarifying, message me directly — my number's on the last page.</p>
+
+    <div class="signature">
+      <div class="name">Vignesh Armugam</div>
+      <div class="role">Founder, CareerPush</div>
+      <div class="contact-block">
+        <div>WhatsApp: +91 97500 61584</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer"><span>Private &amp; confidential</span><span>Page 2</span></div>
+</div>
+
+<!-- PAGE 3: CAPABILITIES PART 1 -->
+<div class="page">
+  <div class="page-header">
+    <div class="brand">Career<span class="push">Push</span></div>
+    <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
+  </div>
+  <div class="content">
+    <h2>What's Included</h2>
+    <p class="muted">Every CareerPush plan builds on the one before it — Gold includes everything in Silver, Platinum includes everything in Gold.</p>
+
+    <div class="capability">
+      <h3>Profile &amp; Resume Setup</h3>
+      <p>Start strong with a resume and online presence built to actually pass the first filter — an ATS-focused resume, not just something that looks good to a human reader.</p>
+      <p><strong>How it works:</strong> you share your resume and background with us over WhatsApp — no portal logins, ever. We rebuild or refine your resume with ATS-focused formatting, and set up or optimize your profiles across major job platforms (Naukri, LinkedIn, Shine, Monster, Foundit, and more — specific methods can vary by each platform's current rules).</p>
+      <ul class="deliverables">
+        <li>ATS-focused resume</li>
+        <li>Profile setup across major job platforms</li>
+        <li><span class="tier-tag">Gold+</span> Monthly resume review</li>
+        <li><span class="tier-tag">Platinum</span> On-demand resume tweaks</li>
+      </ul>
+    </div>
+
+    <div class="capability">
+      <h3>Job Matching &amp; Application Assistance</h3>
+      <p>Stop refreshing job portals yourself. We match your profile against relevant openings and handle the applying, using candidate-authorized, platform-permitted methods.</p>
+      <p><strong>How it works:</strong> WhatsApp alerts land when a role matches your profile, and applications go out using methods each platform actually permits. Gold and Platinum candidates get priority — their profile is worked ahead of standard-tier candidates.</p>
+      <ul class="deliverables">
+        <li>WhatsApp job alerts matched to your profile</li>
+        <li>Application assistance, candidate-authorized methods</li>
+        <li><span class="tier-tag">Gold+</span> Priority matching &amp; faster follow-up</li>
+        <li><span class="tier-tag">Platinum</span> Top-priority matching &amp; same-day follow-up</li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer"><span>Private &amp; confidential</span><span>Page 3</span></div>
+</div>
+
+<!-- PAGE 4: CAPABILITIES PART 2 -->
+<div class="page">
+  <div class="page-header">
+    <div class="brand">Career<span class="push">Push</span></div>
+    <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
+  </div>
+  <div class="content">
+    <h2>What's Included <span class="muted" style="font-size:11pt; font-weight:400;">(continued)</span></h2>
+
+    <div class="capability">
+      <h3>Progress Updates</h3>
+      <p>No wondering where things stand. You get a real update from a real person, on a schedule matched to your plan.</p>
+      <ul class="deliverables">
+        <li><span class="tier-tag">Silver</span> Bi-weekly WhatsApp updates</li>
+        <li><span class="tier-tag">Gold</span> Weekly WhatsApp updates</li>
+        <li><span class="tier-tag">Platinum</span> Twice-weekly updates, or on request</li>
+      </ul>
+    </div>
+
+    <div class="capability">
+      <h3>Interview Support <span class="tier-tag" style="margin-left:2mm;">Gold &amp; Platinum</span></h3>
+      <p>Once you get the call, we don't disappear — we help you walk in prepared.</p>
+      <p><strong>How it works:</strong> scheduling assistance, interview preparation, and company &amp; interview-preparation insights based on publicly available information and legitimate candidate/recruiter interactions — never confidential or insider information.</p>
+      <ul class="deliverables">
+        <li>Interview scheduling &amp; preparation support</li>
+        <li>Company &amp; interview-preparation insights</li>
+        <li><span class="tier-tag">Platinum</span> Mock interview with human feedback, company-specific prep before each interview</li>
+      </ul>
+    </div>
+
+    <div class="capability">
+      <h3>After-Joining Support <span class="tier-tag" style="margin-left:2mm;">Gold &amp; Platinum</span></h3>
+      <p>Landing the offer isn't the finish line for us — your first 90 days on the job matter too.</p>
+      <ul class="deliverables">
+        <li>First 30 days: onboarding &amp; joining guidance, communication support</li>
+        <li>Day 30–90: project/tool ramp-up guidance, career transition support</li>
+        <li><span class="tier-tag">Platinum</span> Priority access to your specialist throughout</li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-footer"><span>Private &amp; confidential</span><span>Page 4</span></div>
+</div>
+
+<!-- PAGE 5: PLATINUM EXTRAS -->
+<div class="page">
+  <div class="page-header">
+    <div class="brand">Career<span class="push">Push</span></div>
+    <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
+  </div>
+  <div class="content">
+    <h2>Platinum — Premium Career Support</h2>
+    <p class="muted">Everything in Gold, plus direct 1:1 time with a career specialist.</p>
+
+    <div class="capability">
+      <h3>Salary &amp; Offer Guidance</h3>
+      <p>Personalized guidance on evaluating and negotiating an offer once one comes in — what to weigh beyond the number, and how to have that conversation with an employer.</p>
+    </div>
+
+    <div class="capability">
+      <h3>Employer Introduction — Where Available</h3>
+      <p>Where a legitimate recruiter or employer relationship exists, we may facilitate an introduction. This isn't guaranteed for every role or company — it depends on what relationships genuinely exist at the time.</p>
+    </div>
+
+    <div class="capability">
+      <h3>Monthly 1:1 Career Call</h3>
+      <p>A direct call each month — not just a status update, but a conversation about career direction, not only the immediate job search.</p>
+    </div>
+
+    <div class="capability">
+      <h3>Why Platinum Is Capped</h3>
+      <p>Platinum is limited to <strong>5 active candidates per specialist</strong>. This is a real operational limit, not manufactured urgency — it's what it actually takes to keep the 1:1 attention above genuine, not diluted.</p>
+    </div>
+  </div>
+  <div class="page-footer"><span>Private &amp; confidential</span><span>Page 5</span></div>
+</div>
+
+<!-- PAGE 6: PRICING -->
+<div class="page">
+  <div class="page-header">
+    <div class="brand">Career<span class="push">Push</span></div>
+    <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
+  </div>
+  <div class="content">
+    <h2>Your Plan &amp; Pricing</h2>
+    <p class="muted">Simple monthly subscriptions. Cancel anytime — no long-term lock-in.</p>
+
+    <table class="plans">
+      <tr>
+        <th>&nbsp;</th>
+        <th>Silver</th>
+        <th class="gold">Gold — Recommended</th>
+        <th>Platinum</th>
+      </tr>
+      <tr>
+        <td>Monthly price</td>
+        <td class="price">₹499</td>
+        <td class="price">₹999</td>
+        <td class="price">₹1,999</td>
+      </tr>
+      <tr>
+        <td>Profile &amp; resume setup</td>
+        <td class="check">✓</td>
+        <td class="check">✓</td>
+        <td class="check">✓</td>
+      </tr>
+      <tr>
+        <td>Application assistance</td>
+        <td class="check">✓ Standard</td>
+        <td class="check">✓ Priority</td>
+        <td class="check">✓ Top priority</td>
+      </tr>
+      <tr>
+        <td>Progress updates</td>
+        <td>Bi-weekly</td>
+        <td>Weekly</td>
+        <td>Twice-weekly</td>
+      </tr>
+      <tr>
+        <td>Resume review</td>
+        <td class="dash">—</td>
+        <td>Monthly</td>
+        <td>On-demand</td>
+      </tr>
+      <tr>
+        <td>Interview support</td>
+        <td class="dash">—</td>
+        <td class="check">✓</td>
+        <td class="check">✓ + Mock interview</td>
+      </tr>
+      <tr>
+        <td>After-joining support</td>
+        <td class="dash">—</td>
+        <td class="check">✓</td>
+        <td class="check">✓ Priority</td>
+      </tr>
+      <tr>
+        <td>Salary &amp; offer guidance</td>
+        <td class="dash">—</td>
+        <td class="dash">—</td>
+        <td class="check">✓</td>
+      </tr>
+      <tr>
+        <td>Monthly 1:1 call</td>
+        <td class="dash">—</td>
+        <td class="dash">—</td>
+        <td class="check">✓</td>
+      </tr>
+      <tr>
+        <td>Availability</td>
+        <td>Open</td>
+        <td>Open</td>
+        <td>5 seats per specialist</td>
+      </tr>
+    </table>
+
+    <div class="note-block">
+      <h3>Important Notes</h3>
+      <p><strong>Scope of services:</strong> CareerPush strengthens your job search process and visibility. We do not guarantee interviews, job offers, employment, or any specific salary outcome. Hiring decisions are made independently by employers.</p>
+      <p><strong>Service applicability:</strong> results depend on factors including your qualifications, experience, role availability, employer requirements, market conditions, and interview performance.</p>
+      <p><strong>Candidate-authorized methods only:</strong> application assistance uses candidate-authorized, platform-permitted methods. We never request job portal passwords, and don't perform any workflow a platform's terms don't allow.</p>
+      <p><strong>Billing:</strong> monthly, cancel anytime. The current billing period isn't refunded, but there's no long-term lock-in. Full terms: CareerPush Terms of Service &amp; Refund and Cancellation Policy.</p>
+    </div>
+  </div>
+  <div class="page-footer"><span>Private &amp; confidential</span><span>Page 6</span></div>
+</div>
+
+<!-- PAGE 7: WHY + CONTACT -->
+<div class="page">
+  <div class="page-header">
+    <div class="brand">Career<span class="push">Push</span></div>
+    <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
+  </div>
+  <div class="content">
+    <h2>Why CareerPush Is Intentionally Small</h2>
+    <p class="muted">We're not trying to be the biggest name in this space — we're trying to be the most honest one.</p>
+
+    <div class="why-grid">
+      <div class="item">
+        <h3>Real people, not a bot</h3>
+        <p>Every message you get is from an actual person on our team — not an autofill script or a chatbot.</p>
+      </div>
+      <div class="item">
+        <h3>Capacity-based limits, not fake urgency</h3>
+        <p>Platinum's 5-seat cap exists because that's genuinely what one specialist can give real attention to — not manufactured scarcity.</p>
+      </div>
+      <div class="item">
+        <h3>No guarantees we can't back</h3>
+        <p>We won't promise a job offer, an interview count, or insider access we don't have. What we promise is real effort and honest updates.</p>
+      </div>
+      <div class="item">
+        <h3>You stay in control</h3>
+        <p>We never ask for your job portal passwords. Every action taken on your behalf is candidate-authorized.</p>
+      </div>
+    </div>
+
+    <div class="note-block" style="margin-top:14mm;">
+      <h3>Ready to start?</h3>
+      <p style="font-size:10.5pt;">Message me directly on WhatsApp and I'll help you pick the right plan and get you onboarded.</p>
+      <div class="contact-block" style="margin-top:3mm;">
+        <div><strong>Vignesh Armugam</strong> — Founder, CareerPush</div>
+        <div>WhatsApp: +91 97500 61584</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer"><span>Private &amp; confidential</span><span>Page 7</span></div>
+</div>
+
+</body>
+</html>
