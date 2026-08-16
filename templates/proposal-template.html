@@ -30,6 +30,30 @@
     background: linear-gradient(135deg, #e0362e 0%, #dc2626 45%, #a91d1d 100%);
     color: #fff;
     padding: 14mm 16mm;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .band::before,
+  .band::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .band::before { width: 140mm; height: 140mm; top: -50mm; right: -35mm; }
+  .band::after { width: 90mm; height: 90mm; bottom: -35mm; left: -25mm; background: rgba(255,255,255,0.05); }
+  .cover-watermark {
+    position: absolute;
+    right: 8%;
+    bottom: 16%;
+    width: 90mm;
+    height: 90mm;
+    opacity: 0.09;
+    z-index: -1;
+    pointer-events: none;
   }
   .band-sm { padding: 8mm 16mm; }
   .content { padding: 12mm 16mm; }
@@ -59,22 +83,16 @@
   .cover-wordmark { font-size: 17pt; font-weight: 800; color: #fff; letter-spacing: -0.01em; }
   .cover h1 { font-size: 32pt; margin-top: 12mm; }
   .cover .subtitle { font-size: 13pt; opacity: 0.92; margin-top: 2mm; }
-  .cover .prepared-for { margin-top: 14mm; font-size: 11pt; }
-  .cover .prepared-for .name { font-size: 15pt; font-weight: 700; margin-top: 1mm; }
-  .cover .date { margin-top: 4mm; font-size: 10.5pt; opacity: 0.85; }
-
   /* ---- Header bar reused on inner pages ---- */
   .page-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 6mm 16mm;
     border-bottom: 1px solid #e8e2db;
   }
   .page-header .brand { display: flex; align-items: center; gap: 3mm; font-weight: 800; font-size: 12pt; }
   .page-header .brand-icon { width: 7mm; height: 7mm; border-radius: 1.6mm; flex-shrink: 0; }
   .page-header .brand .push { color: #dc2626; }
-  .page-header .for-line { font-size: 9pt; color: #7a6d66; }
 
   .page-footer {
     position: absolute;
@@ -147,6 +165,13 @@
 
 <!-- PAGE 1: COVER -->
 <div class="page cover band">
+  <svg class="cover-watermark" viewBox="0 0 100 100" aria-hidden="true">
+    <rect x="16" y="16" width="14" height="68" fill="#ffffff"/>
+    <rect x="16" y="16" width="38" height="14" fill="#ffffff"/>
+    <rect x="16" y="70" width="38" height="14" fill="#ffffff"/>
+    <rect x="56" y="10" width="13" height="80" fill="#ffffff"/>
+    <rect x="56" y="10" width="28" height="26" fill="#ffffff"/>
+  </svg>
   <div class="top">
     <div class="cover-brand">
       <svg class="logo-mark" viewBox="0 0 100 100">
@@ -161,15 +186,8 @@
     <h1>Career Support Plan</h1>
     <p class="subtitle">A proposal from CareerPush — human support and technology for your job search.</p>
   </div>
-  <div class="mid">
-    <div class="prepared-for">
-      Prepared for
-      <div class="name placeholder-tag" style="background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.5); color:#fff;">[Candidate Name]</div>
-    </div>
-    <div class="date placeholder-tag" style="background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.5); color:#fff; display:inline-block;">[Date]</div>
-  </div>
   <div class="bottom">
-    <p style="font-size:9.5pt; opacity:0.85;">Private &amp; confidential — prepared specifically for the candidate named above.</p>
+    <p style="font-size:9.5pt; opacity:0.85;">Private &amp; confidential.</p>
   </div>
 </div>
 
@@ -187,18 +205,16 @@
       </svg>
       <span>Career<span class="push">Push</span></span>
     </div>
-    <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
   </div>
   <div class="content">
-    <h2>Dear <span class="placeholder-tag">[Candidate Name]</span>,</h2>
-    <p>Thank you for considering CareerPush for your job search. I'm glad to share exactly what a CareerPush subscription includes, so you know precisely what you're signing up for before you do.</p>
-    <p>CareerPush exists because applying through job portals alone rarely gets freshers and early-career candidates enough interview calls. We combine human support with technology to manage the parts of a job search that are hardest to keep up alone — profile setup, application assistance, follow-through, and interview preparation — with real people doing the work, not a bot or an autofill script.</p>
-    <p>This document walks through what's included at each plan level, how the process actually works week to week, and what it costs. I've also included a short, honest section on what we don't promise — because a job search has real uncertainty in it, and I'd rather be upfront about that than oversell it.</p>
-    <p>If anything here needs clarifying, message me directly — my number's on the last page.</p>
+    <h2>Hello,</h2>
+    <p>Thank you for considering CareerPush for your job search. Here's exactly what a CareerPush subscription includes, so you know precisely what you're signing up for.</p>
+    <p>CareerPush exists because applying through job portals alone rarely gets freshers and early-career candidates enough interview calls. We combine human support with technology to manage the parts of a job search that are hardest to keep up alone — searching, applying, following up, and prepping you for interviews — with real people doing the work, not a bot or an autofill script. We also handle your resume and profile setup, but that's the easy part — plenty of tools already do that. What's harder to sustain alone is everything else.</p>
+    <p>This document walks through what's included at each plan level, how the process actually works week to week, and what it costs. We've also included a short, honest section on what we don't promise — because a job search has real uncertainty in it, and we'd rather be upfront about that than oversell it.</p>
+    <p>If anything here needs clarifying, message us directly — the number's on the last page.</p>
 
     <div class="signature">
-      <div class="name">Vignesh Armugam</div>
-      <div class="role">Founder, CareerPush</div>
+      <div class="name">The CareerPush Team</div>
       <div class="contact-block">
         <div>WhatsApp: +91 97500 61584</div>
       </div>
@@ -221,33 +237,30 @@
       </svg>
       <span>Career<span class="push">Push</span></span>
     </div>
-    <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
   </div>
   <div class="content">
     <h2>What's Included</h2>
-    <p class="muted">Every CareerPush plan builds on the one before it — Gold includes everything in Silver, Platinum includes everything in Gold.</p>
-
-    <div class="capability">
-      <h3>Profile &amp; Resume Setup</h3>
-      <p>Start strong with a resume and online presence built to actually pass the first filter — an ATS-focused resume, not just something that looks good to a human reader.</p>
-      <p><strong>How it works:</strong> you share your resume and background with us over WhatsApp — no portal logins, ever. We rebuild or refine your resume with ATS-focused formatting, and set up or optimize your profiles across major job platforms (Naukri, LinkedIn, Shine, Monster, Foundit, and more — specific methods can vary by each platform's current rules).</p>
-      <ul class="deliverables">
-        <li>ATS-focused resume</li>
-        <li>Profile setup across major job platforms</li>
-        <li><span class="tier-tag">Gold+</span> Monthly resume review</li>
-        <li><span class="tier-tag">Platinum</span> On-demand resume tweaks</li>
-      </ul>
-    </div>
+    <p class="muted">Every CareerPush plan builds on the one before it — Gold includes everything in Silver, Platinum includes everything in Gold. This is the core of what you're actually paying for: the ongoing work, not a one-time document.</p>
 
     <div class="capability">
       <h3>Job Matching &amp; Application Assistance</h3>
-      <p>Stop refreshing job portals yourself. We match your profile against relevant openings and handle the applying, using candidate-authorized, platform-permitted methods.</p>
+      <p>Stop refreshing job portals yourself. We match your profile against relevant openings and handle the applying, using candidate-authorized, platform-permitted methods — every day, not once.</p>
       <p><strong>How it works:</strong> WhatsApp alerts land when a role matches your profile, and applications go out using methods each platform actually permits. Gold and Platinum candidates get priority — their profile is worked ahead of standard-tier candidates.</p>
       <ul class="deliverables">
         <li>WhatsApp job alerts matched to your profile</li>
         <li>Application assistance, candidate-authorized methods</li>
         <li><span class="tier-tag">Gold+</span> Priority matching &amp; faster follow-up</li>
         <li><span class="tier-tag">Platinum</span> Top-priority matching &amp; same-day follow-up</li>
+      </ul>
+    </div>
+
+    <div class="capability">
+      <h3>Progress Updates</h3>
+      <p>No wondering where things stand. You get a real update from a real person, on a schedule matched to your plan.</p>
+      <ul class="deliverables">
+        <li><span class="tier-tag">Silver</span> Bi-weekly WhatsApp updates</li>
+        <li><span class="tier-tag">Gold</span> Weekly WhatsApp updates</li>
+        <li><span class="tier-tag">Platinum</span> Twice-weekly updates, or on request</li>
       </ul>
     </div>
   </div>
@@ -268,20 +281,9 @@
       </svg>
       <span>Career<span class="push">Push</span></span>
     </div>
-    <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
   </div>
   <div class="content">
     <h2>What's Included <span class="muted" style="font-size:11pt; font-weight:400;">(continued)</span></h2>
-
-    <div class="capability">
-      <h3>Progress Updates</h3>
-      <p>No wondering where things stand. You get a real update from a real person, on a schedule matched to your plan.</p>
-      <ul class="deliverables">
-        <li><span class="tier-tag">Silver</span> Bi-weekly WhatsApp updates</li>
-        <li><span class="tier-tag">Gold</span> Weekly WhatsApp updates</li>
-        <li><span class="tier-tag">Platinum</span> Twice-weekly updates, or on request</li>
-      </ul>
-    </div>
 
     <div class="capability">
       <h3>Interview Support <span class="tier-tag" style="margin-left:2mm;">Gold &amp; Platinum</span></h3>
@@ -303,6 +305,16 @@
         <li><span class="tier-tag">Platinum</span> Priority access to your specialist throughout</li>
       </ul>
     </div>
+
+    <div class="capability">
+      <h3>Profile &amp; Resume Setup <span class="muted" style="font-size:9.5pt; font-weight:400;">— the starting point, not the whole plan</span></h3>
+      <p>Every plan includes an ATS-focused resume and profile setup across major job platforms (Naukri, LinkedIn, Shine, Monster, Foundit, and more — specific methods can vary by each platform's current rules). But building a resume isn't hard to find elsewhere — plenty of tools do that. What's harder to sustain alone is everything above: consistent applying, real follow-up, and being ready when the interview call comes. That's where CareerPush actually spends its effort.</p>
+      <ul class="deliverables">
+        <li>ATS-focused resume &amp; profile setup, included in every plan</li>
+        <li><span class="tier-tag">Gold+</span> Monthly resume review</li>
+        <li><span class="tier-tag">Platinum</span> On-demand resume tweaks</li>
+      </ul>
+    </div>
   </div>
   <div class="page-footer"><span>Private &amp; confidential</span><span>Page 4</span></div>
 </div>
@@ -321,7 +333,6 @@
       </svg>
       <span>Career<span class="push">Push</span></span>
     </div>
-    <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
   </div>
   <div class="content">
     <h2>Platinum — Premium Career Support</h2>
@@ -364,7 +375,6 @@
       </svg>
       <span>Career<span class="push">Push</span></span>
     </div>
-    <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
   </div>
   <div class="content">
     <h2>Your Plan &amp; Pricing</h2>
@@ -384,12 +394,6 @@
         <td class="price">₹1,999</td>
       </tr>
       <tr>
-        <td>Profile &amp; resume setup</td>
-        <td class="check">✓</td>
-        <td class="check">✓</td>
-        <td class="check">✓</td>
-      </tr>
-      <tr>
         <td>Application assistance</td>
         <td class="check">✓ Standard</td>
         <td class="check">✓ Priority</td>
@@ -400,12 +404,6 @@
         <td>Bi-weekly</td>
         <td>Weekly</td>
         <td>Twice-weekly</td>
-      </tr>
-      <tr>
-        <td>Resume review</td>
-        <td class="dash">—</td>
-        <td>Monthly</td>
-        <td>On-demand</td>
       </tr>
       <tr>
         <td>Interview support</td>
@@ -430,6 +428,18 @@
         <td class="dash">—</td>
         <td class="dash">—</td>
         <td class="check">✓</td>
+      </tr>
+      <tr>
+        <td>Profile &amp; resume setup</td>
+        <td class="check">✓</td>
+        <td class="check">✓</td>
+        <td class="check">✓</td>
+      </tr>
+      <tr>
+        <td>Resume review</td>
+        <td class="dash">—</td>
+        <td>Monthly</td>
+        <td>On-demand</td>
       </tr>
       <tr>
         <td>Availability</td>
@@ -464,7 +474,6 @@
       </svg>
       <span>Career<span class="push">Push</span></span>
     </div>
-    <div class="for-line">For <span class="placeholder-tag">[Candidate Name]</span></div>
   </div>
   <div class="content">
     <h2>Why CareerPush Is Intentionally Small</h2>
@@ -491,9 +500,9 @@
 
     <div class="note-block" style="margin-top:14mm;">
       <h3>Ready to start?</h3>
-      <p style="font-size:10.5pt;">Message me directly on WhatsApp and I'll help you pick the right plan and get you onboarded.</p>
+      <p style="font-size:10.5pt;">Message us directly on WhatsApp and we'll help you pick the right plan and get you onboarded.</p>
       <div class="contact-block" style="margin-top:3mm;">
-        <div><strong>Vignesh Armugam</strong> — Founder, CareerPush</div>
+        <div><strong>The CareerPush Team</strong></div>
         <div>WhatsApp: +91 97500 61584</div>
       </div>
     </div>
