@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>CareerPush — Job Opening Status Template</title>
+<style>
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body {
+    margin: 0;
+    height: 100%;
+    font-family: 'Segoe UI', -apple-system, Roboto, sans-serif;
+    overflow: hidden;
+  }
+  .frame {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100dvh;
+    background: linear-gradient(135deg, #e0362e 0%, #dc2626 45%, #a91d1d 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 6vh 8vw 5vh;
+  }
+  .circle { position: absolute; border-radius: 50%; background: rgba(255,255,255,0.08); pointer-events: none; }
+  .circle-1 { width: 60vw; height: 60vw; top: -20vw; right: -18vw; }
+  .circle-2 { width: 40vw; height: 40vw; bottom: -18vw; left: -14vw; background: rgba(255,255,255,0.06); }
+
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 4.2vw; margin-bottom: 3vh; }
+  .brand svg { width: 7vw; height: 7vw; min-width: 28px; min-height: 28px; }
+
+  .eyebrow {
+    background: #961a1a;
+    font-weight: 800;
+    font-size: 3.6vw;
+    letter-spacing: 0.04em;
+    padding: 1.6vh 5vw;
+    border-radius: 999px;
+    margin-bottom: 4vh;
+  }
+
+  .field {
+    font-weight: 800;
+    line-height: 1.15;
+    outline: none;
+    border: none;
+    background: transparent;
+    color: #fff;
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .company { font-size: 6.5vw; margin-bottom: 1.5vh; }
+  .role { font-size: 9vw; margin-bottom: 2.5vh; }
+  .meta { font-size: 5vw; font-weight: 700; color: #ffe2e2; margin-bottom: 1.5vh; }
+  .source { font-size: 3.6vw; font-weight: 400; color: #ffd0d0; margin-bottom: auto; }
+
+  .cta-block { margin-top: auto; padding-top: 4vh; }
+  .cta-main { font-weight: 800; font-size: 6vw; margin-bottom: 1vh; }
+  .cta-sub { font-size: 3.6vw; color: #ffe2e2; }
+
+  .watermark { position: absolute; width: 46vw; height: 46vw; opacity: 0.08; left: 50%; top: 56%; transform: translate(-50%, -50%); pointer-events: none; }
+  .watermark svg { width: 100%; height: 100%; }
+
+  [contenteditable="true"]:focus { outline: 2px dashed rgba(255,255,255,0.55); outline-offset: 4px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<div class="frame">
+  <div class="circle circle-1"></div>
+  <div class="circle circle-2"></div>
+
+  <div class="brand">
+    <svg viewBox="0 0 100 100">
+      <rect x="16" y="16" width="14" height="68" fill="#ffffff"/>
+      <rect x="16" y="16" width="38" height="14" fill="#ffffff"/>
+      <rect x="16" y="70" width="38" height="14" fill="#ffffff"/>
+      <rect x="56" y="10" width="13" height="80" fill="#ffffff"/>
+      <rect x="56" y="10" width="28" height="26" fill="#ffffff"/>
+    </svg>
+    CareerPush
+  </div>
+
+  <div class="eyebrow">OPENING SPOTTED</div>
+
+  <div class="field company" contenteditable="true">[Company Name]</div>
+  <div class="field role" contenteditable="true">[Role / Designation]</div>
+  <div class="field meta" contenteditable="true">[Experience] · [Location]</div>
+  <div class="field source" contenteditable="true">via [Naukri / LinkedIn / Company site]</div>
+
+  <div class="watermark">
+    <svg viewBox="0 0 100 100">
+      <rect x="16" y="16" width="14" height="68" fill="#ffffff"/>
+      <rect x="16" y="16" width="38" height="14" fill="#ffffff"/>
+      <rect x="16" y="70" width="38" height="14" fill="#ffffff"/>
+      <rect x="56" y="10" width="13" height="80" fill="#ffffff"/>
+      <rect x="56" y="10" width="28" height="26" fill="#ffffff"/>
+    </svg>
+  </div>
+
+  <div class="cta-block">
+    <div class="cta-main">Want help applying?</div>
+    <div class="cta-sub">Message me and I'll send the link.</div>
+  </div>
+</div>
+
+</body>
+</html>
