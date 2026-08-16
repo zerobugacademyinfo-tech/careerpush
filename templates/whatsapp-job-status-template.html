@@ -41,6 +41,9 @@
     padding: 1.6vh 5vw;
     border-radius: 999px;
     margin-bottom: 4vh;
+    outline: none;
+    border: none;
+    max-width: 84vw;
   }
 
   .field {
@@ -59,7 +62,8 @@
   .company { font-size: 6.5vw; margin-bottom: 1.5vh; }
   .role { font-size: 9vw; margin-bottom: 2.5vh; }
   .meta { font-size: 5vw; font-weight: 700; color: #ffe2e2; margin-bottom: 1.5vh; }
-  .source { font-size: 3.6vw; font-weight: 400; color: #ffd0d0; margin-bottom: auto; }
+  .source { font-size: 3.6vw; font-weight: 400; color: #ffd0d0; margin-bottom: 1.5vh; }
+  .verified { font-size: 3.6vw; font-weight: 700; color: #ffffff; margin-bottom: auto; }
 
   .cta-block { margin-top: auto; padding-top: 4vh; }
   .cta-main { font-weight: 800; font-size: 6vw; margin-bottom: 1vh; }
@@ -88,12 +92,13 @@
     CareerPush
   </div>
 
-  <div class="eyebrow">OPENING SPOTTED</div>
+  <div class="eyebrow" contenteditable="true">OPENING SPOTTED</div>
 
   <div class="field company" contenteditable="true">[Company Name]</div>
   <div class="field role" contenteditable="true">[Role / Designation]</div>
   <div class="field meta" contenteditable="true">[Experience] · [Location]</div>
   <div class="field source" contenteditable="true">via [Naukri / LinkedIn / Company site]</div>
+  <div class="field verified" contenteditable="true">[delete this line if not verified — otherwise: ✓ Confirmed directly with the employer]</div>
 
   <div class="watermark">
     <svg viewBox="0 0 100 100">
