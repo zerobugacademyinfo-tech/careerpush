@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CareerPush — Job Opening Flyer</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', -apple-system, Roboto, sans-serif;
+    color: #211815;
+    background: #efe9e4;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+  @media screen {
+    .page { margin: 16px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+  }
+  [contenteditable="true"] { outline: none; }
+  [contenteditable="true"]:focus {
+    outline: 2px dashed #dc2626;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* ---- corner ribbon ---- */
+  .ribbon {
+    position: absolute;
+    top: 0; right: 0;
+    width: 62mm;
+    height: 34mm;
+    background: linear-gradient(135deg, #e0362e 0%, #a91d1d 100%);
+    clip-path: polygon(22% 0, 100% 0, 100% 100%);
+    color: #fff;
+    text-align: right;
+    padding: 6mm 8mm 0 0;
+  }
+  .ribbon .label {
+    font-size: 10pt;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    display: block;
+  }
+  .ribbon .num {
+    font-size: 26pt;
+    font-weight: 800;
+    display: block;
+    margin-top: 1mm;
+  }
+
+  /* ---- header ---- */
+  .brand-row {
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+    padding: 10mm 14mm 0;
+  }
+  .brand-row svg { width: 9mm; height: 9mm; flex-shrink: 0; }
+  .brand-row .name { font-weight: 800; font-size: 14pt; }
+  .brand-row .name .push { color: #dc2626; }
+  .brand-row .tagline { font-size: 8pt; color: #7a6d66; margin-left: 1mm; }
+
+  /* ---- hero ---- */
+  .hero { padding: 6mm 14mm 0; }
+  .hero .we-are { font-size: 15pt; font-weight: 800; margin: 0; color: #211815; }
+  .hero .hiring {
+    font-size: 40pt;
+    font-weight: 800;
+    color: #dc2626;
+    margin: 0;
+    line-height: 1.05;
+  }
+  .role-bar {
+    display: inline-block;
+    background: #211815;
+    color: #fff;
+    font-weight: 800;
+    font-size: 14pt;
+    padding: 2.5mm 6mm;
+    border-radius: 4px;
+    margin-top: 3mm;
+  }
+  .location-row {
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+    margin-top: 4mm;
+    font-weight: 700;
+    font-size: 11pt;
+    color: #dc2626;
+  }
+  .exp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3mm;
+    border: 1.5px solid #f0b8b6;
+    border-radius: 8px;
+    padding: 2.5mm 5mm;
+    margin-top: 4mm;
+  }
+  .exp-badge .icon {
+    width: 8mm; height: 8mm;
+    background: #fef2f2;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #dc2626;
+    font-size: 10pt;
+  }
+  .exp-badge .exp-label { font-size: 8pt; color: #b91c1c; font-weight: 700; letter-spacing: 0.03em; }
+  .exp-badge .exp-value { font-size: 11pt; font-weight: 800; }
+
+  /* ---- body columns ---- */
+  .body-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8mm;
+    padding: 7mm 14mm 0;
+  }
+  .section-title {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #dc2626;
+    border-bottom: 2px solid #f6c9c6;
+    padding-bottom: 1.5mm;
+    margin-bottom: 3mm;
+    letter-spacing: 0.02em;
+  }
+  .about-text { font-size: 9.5pt; line-height: 1.55; color: #4a4340; }
+  ul.bullets { margin: 0 0 4mm; padding-left: 4mm; }
+  ul.bullets li { font-size: 9pt; line-height: 1.5; color: #4a4340; margin-bottom: 1.3mm; }
+
+  .nice-to-have {
+    background: #fef2f2;
+    border: 1px solid #f6c9c6;
+    border-radius: 8px;
+    padding: 3mm 4mm;
+    font-size: 8.8pt;
+    color: #4a4340;
+    display: flex;
+    gap: 2mm;
+    margin-top: 2mm;
+  }
+  .nice-to-have .star { color: #dc2626; font-size: 11pt; line-height: 1; }
+
+  .apply-row {
+    display: flex;
+    align-items: center;
+    gap: 5mm;
+    margin-top: 6mm;
+  }
+  .apply-btn {
+    background: #dc2626;
+    color: #fff;
+    font-weight: 800;
+    font-size: 10.5pt;
+    padding: 3mm 7mm;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  .apply-contact { font-size: 8.5pt; color: #4a4340; }
+  .apply-contact strong { display: block; color: #211815; font-size: 9pt; }
+
+  /* ---- footer stats bar ---- */
+  .stats-bar {
+    display: flex;
+    margin: 10mm 14mm 0;
+    background: #211815;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .stat {
+    flex: 1;
+    padding: 4mm 3mm;
+    color: #fff;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.12);
+  }
+  .stat:last-child { border-right: none; }
+  .stat .stat-label {
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #f0b8b6;
+    font-weight: 700;
+    margin-bottom: 1mm;
+  }
+  .stat .stat-value { font-size: 9pt; font-weight: 700; }
+
+  /* ---- bottom footer ---- */
+  .bottom-footer {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(135deg, #e0362e 0%, #a91d1d 100%);
+    color: #fff;
+    padding: 5mm 14mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 9pt;
+  }
+  .bottom-footer .name { font-weight: 800; }
+  .bottom-footer .push { color: #ffd0d0; }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="ribbon">
+    <span class="label">OPENING</span>
+    <span class="num" contenteditable="true">01</span>
+  </div>
+
+  <div class="brand-row">
+    <svg viewBox="0 0 100 100">
+      <rect width="100" height="100" rx="22" fill="#dc2626"/>
+      <rect x="16" y="16" width="14" height="68" fill="#ffffff"/>
+      <rect x="16" y="16" width="38" height="14" fill="#ffffff"/>
+      <rect x="16" y="70" width="38" height="14" fill="#ffffff"/>
+      <rect x="56" y="10" width="13" height="80" fill="#ffffff"/>
+      <rect x="56" y="10" width="28" height="26" fill="#ffffff"/>
+    </svg>
+    <span class="name">Career<span class="push">Push</span></span>
+    <span class="tagline">— Career support for freshers &amp; early-career professionals</span>
+  </div>
+
+  <div class="hero">
+    <p class="we-are">WE ARE</p>
+    <p class="hiring">HIRING!</p>
+    <div class="role-bar" contenteditable="true">Python Developer</div>
+    <div class="location-row">
+      <span>&#128205;</span>
+      <span contenteditable="true">Bangalore</span>
+    </div>
+    <div class="exp-badge">
+      <span class="icon">&#128188;</span>
+      <span>
+        <span class="exp-label">EXPERIENCE</span><br>
+        <span class="exp-value" contenteditable="true">4 – 5 Years</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="body-grid">
+    <div>
+      <p class="section-title">ABOUT THE ROLE</p>
+      <p class="about-text" contenteditable="true">We are looking for a Python Developer with 4 to 5 years of experience to develop, maintain, and enhance enterprise automation solutions. The candidate will independently manage application development, API integrations, server deployment, scheduled jobs, reporting, and production support.</p>
+
+      <div class="apply-row">
+        <div class="apply-btn">APPLY NOW &nbsp;&#8594;</div>
+        <div class="apply-contact">
+          Message us on WhatsApp, or email your resume to<br>
+          <strong contenteditable="true">hello@careerpush.in</strong>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p class="section-title">KEY RESPONSIBILITIES</p>
+      <ul class="bullets" contenteditable="true">
+        <li>Develop and maintain Python-based automation applications.</li>
+        <li>Integrate enterprise tools and external systems using REST APIs.</li>
+        <li>Deploy and manage applications on internal servers.</li>
+        <li>Automate data processing, reporting, and email notifications.</li>
+        <li>Write clean, reusable, and well-tested code.</li>
+        <li>Troubleshoot application and integration issues.</li>
+      </ul>
+
+      <p class="section-title">REQUIRED SKILLS</p>
+      <ul class="bullets" contenteditable="true">
+        <li>Strong hands-on experience in Python development.</li>
+        <li>Experience with REST APIs, JSON, CSV, and data processing.</li>
+        <li>Knowledge of Git, logging, exception handling, and automated testing.</li>
+        <li>Good problem-solving, communication, and ownership skills.</li>
+      </ul>
+
+      <div class="nice-to-have">
+        <span class="star">&#9733;</span>
+        <span contenteditable="true">Experience with enterprise tools, databases, Docker, and cloud or secrets-management platforms is an advantage.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-label">Interview Process</div>
+      <div class="stat-value" contenteditable="true">3 Rounds (2 Virtual + 1 F2F)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Work Mode</div>
+      <div class="stat-value" contenteditable="true">Hybrid (3 Days/Office)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Shift Timing</div>
+      <div class="stat-value" contenteditable="true">Regular Shifts</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Weekend Work</div>
+      <div class="stat-value" contenteditable="true">No Weekend Shifts</div>
+    </div>
+  </div>
+
+  <div class="bottom-footer">
+    <span class="name">Career<span class="push">Push</span></span>
+    <span>Job opportunities sourced &amp; verified for our candidates.</span>
+    <span>careerpush.in</span>
+  </div>
+</div>
+
+</body>
+</html>
